@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utility Hub</title>
+  <link rel="stylesheet" href="alat.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    ⚡ <span>Utility Hub</span>
+  </div>
+
+  <nav>
+    <button class="nav-btn active" data-page="calculator">🧮 Kalkulator</button>
+    <button class="nav-btn" data-page="timers">⏱️ 10 Timer</button>
+    <button class="nav-btn" data-page="stopwatch">⏲️ Stopwatch</button>
+    <button class="nav-btn" data-page="qr">▦ QR</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="badge">SMART TOOLKIT</span>
+
+      <h1>
+        Semua alat penting
+        <span>dalam satu website.</span>
+      </h1>
+
+      <p>
+        Kalkulator, 10 timer independen, stopwatch,
+        generator QR pembayaran, dan scanner QR.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ================= KALKULATOR ================= -->
+
+  <section id="calculator" class="page active">
+
+    <div class="section-title">
+      <div>
+        <span>KALKULATOR</span>
+        <h2>Kalkulator Modern</h2>
+      </div>
+
+      <button id="clearCalculator">AC</button>
+    </div>
+
+    <div class="calculator">
+
+      <div class="calculator-display">
+        <small id="calculatorExpression">0</small>
+        <strong id="calculatorResult">0</strong>
+      </div>
+
+      <div class="calculator-buttons">
+
+        <button data-action="clear">AC</button>
+        <button data-action="backspace">⌫</button>
+        <button data-value="%">%</button>
+        <button data-value="/">÷</button>
+
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="*">×</button>
+
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="-">−</button>
+
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value="+">+</button>
+
+        <button class="zero" data-value="0">0</button>
+        <button data-value=".">.</button>
+        <button class="equals" data-action="equals">=</button>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ================= 10 TIMER ================= -->
+
+  <section id="timers" class="page">
+
+    <div class="section-title">
+
+      <div>
+        <span>MULTI TIMER</span>
+        <h2>10 Timer Independen</h2>
+
+        <p>
+          Semua timer berjalan sendiri-sendiri.
+        </p>
+      </div>
+
+      <button id="resetAllTimers">
+        Reset Semua
+      </button>
+
+    </div>
+
+    <div id="timerGrid" class="timer-grid"></div>
+
+  </section>
+
+
+  <!-- ================= STOPWATCH ================= -->
+
+  <section id="stopwatch" class="page">
+
+    <div class="section-title">
+      <div>
+        <span>STOPWATCH</span>
+        <h2>Stopwatch Presisi</h2>
+      </div>
+    </div>
+
+    <div class="stopwatch">
+
+      <div id="stopwatchDisplay">
+        00:00.000
+      </div>
+
+      <div class="controls">
+        <button id="startStopwatch">
+          ▶ Mulai
+        </button>
+
+        <button id="lapStopwatch">
+          ＋ Lap
+        </button>
+
+        <button id="resetStopwatch">
+          ↺ Reset
+        </button>
+      </div>
+
+      <div id="lapList"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= QR ================= -->
+
+  <section id="qr" class="page">
+
+    <div class="section-title">
+      <div>
+        <span>QR PAYMENT</span>
+        <h2>QR Generator & Scanner</h2>
+      </div>
+    </div>
+
+    <div class="qr-grid">
+
+      <!-- GENERATOR -->
+
+      <div class="card">
+
+        <h3>▦ Buat QR Pembayaran</h3>
+
+        <label>
+          Nama penerima
+          <input
+            id="paymentName"
+            type="text"
+            placeholder="Contoh: Minda Cell"
+          >
+        </label>
+
+        <label>
+          Metode pembayaran
+
+          <select id="paymentMethod">
+
+            <option>QRIS</option>
+            <option>Transfer Bank</option>
+            <option>E-Wallet</option>
+            <option>Lainnya</option>
+
+          </select>
+
+        </label>
+
+        <label>
+          Nominal
+
+          <input
+            id="paymentAmount"
+            type="number"
+            min="0"
+            placeholder="50000"
+          >
+
+        </label>
+
+        <label>
+          Catatan
+
+          <input
+            id="paymentNote"
+            type="text"
+            placeholder="Pembayaran sewa PS"
+          >
+
+        </label>
+
+        <button
+          class="primary full"
+          id="generateQR"
+        >
+          Generate QR
+        </button>
+
+        <div id="qrResult">
+          QR akan muncul di sini
+        </div>
+
+        <button
+          id="downloadQR"
+          class="full"
+          disabled
+        >
+          Download QR
+        </button>
+
+        <p class="note">
+          QR ini merupakan QR data pembayaran.
+          Untuk pembayaran QRIS nyata, gunakan payload QRIS
+          resmi dari penyedia pembayaran.
+        </p>
+
+      </div>
+
+
+      <!-- SCANNER -->
+
+      <div class="card">
+
+        <h3>📷 Scan QR</h3>
+
+        <div class="scanner">
+
+          <video
+            id="camera"
+            autoplay
+            playsinline
+          ></video>
+
+          <div class="scanner-frame"></div>
+
+        </div>
+
+        <div class="controls">
+
+          <button
+            class="primary"
+            id="startScanner"
+          >
+            Mulai Kamera
+          </button>
+
+          <button
+            id="stopScanner"
+          >
+            Stop
+          </button>
+
+        </div>
+
+        <label class="upload">
+
+          📁 Pilih gambar QR
+
+          <input
+            id="qrImage"
+            type="file"
+            accept="image/*"
+          >
+
+        </label>
+
+        <div id="scanResult">
+          Hasil scan akan muncul di sini.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+  Utility Hub © 2026
+</footer>
+
+
+<!-- QR LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+
+<script src="alat.js"></script>
+
+</body>
+</html>
